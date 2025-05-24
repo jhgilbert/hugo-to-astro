@@ -31,6 +31,12 @@ Here's an unordered version of the same list, which doesn't make as much sense, 
 - Make some _incredible docs_.
 - **Profit.**
 
+## Code
+
+```javascript
+console.log("Hello, world!");
+```
+
 ## Table
 
 | Column 1     | Column 2     | Column 3     |

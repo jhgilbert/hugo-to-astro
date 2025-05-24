@@ -1,0 +1,17 @@
+{{ $border := .Get "border" | default "2px" }}
+{{ $color := .Get "color" | default "#c9c9c9" }}
+{{ $radius := .Get "radius" | default "0px" }}
+{{ $align := .Get "align" | default "left" }}
+
+{{ $textAlign := cond (eq $align "center") "center" (cond (eq $align "right") "right" "left") }}
+
+<div style="text-align: {{ $textAlign }};">
+  <div style="
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-color: {{ $color }};
+    border: {{ $border }} solid black;
+    border-radius: {{ $radius }};
+  "></div>
+</div>

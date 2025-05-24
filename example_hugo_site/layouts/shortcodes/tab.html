@@ -1,0 +1,8 @@
+{{ $id := .Get "id" }}
+{{ $label := .Get "label" }}
+
+<input type="radio" id="tab-{{ $id }}" name="tabset" {{ if .Get "checked" }}checked{{ end }}>
+<label for="tab-{{ $id }}">{{ $label }}</label>
+<div class="tab-content">
+  {{ .Inner | markdownify }}
+</div>
