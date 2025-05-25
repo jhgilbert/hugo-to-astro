@@ -20,11 +20,16 @@ export function stageShortcodes(dir: string) {
 /**
  * Wrap each shortcode file in a div, and add a script tag
  * containing any params passed to the shortcode.
+ *
+ * TODO: Programmatically add the shortcode manifest partial
+ * instead of including it in the example Hugo site.
  */
 function stageShortcodeFile(path: string) {
   const oldFileContents = fs.readFileSync(path, "utf-8");
 
-  const newFileContents = `<div data-shortcode-info="{{ dict "shortcode" .Name "params" .Params | jsonify }}">
+  const newFileContents = `
+{{ partial "shortcode-manifest.html" . }}
+<div class="hugo-shortcode">
 ${oldFileContents}
 </div>`;
 

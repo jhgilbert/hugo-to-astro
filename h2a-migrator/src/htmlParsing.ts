@@ -24,7 +24,7 @@ function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
   }
 
   const dataInfoAttr = node.attrs.find(
-    (attr) => attr.name === "data-shortcode-info"
+    (attr) => attr.name === "data-shortcode-manifest"
   );
 
   if (dataInfoAttr) {
