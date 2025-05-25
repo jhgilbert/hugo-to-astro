@@ -1,17 +1,26 @@
 {
   "name": "h2a-migrator",
+  "type": "module",
+  "moduleResolution": "Bundler",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "migrate": "tsc && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "tsc; node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "license": "MIT",
   "dependencies": {
     "@markdoc/markdoc": "^0.5.2",
     "@types/node": "^22.15.21",
+    "cheerio": "^1.0.0",
+    "parse5": "^7.3.0",
     "typescript": "^5.8.3",
     "ulid": "^3.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.1.4"
   }
 }

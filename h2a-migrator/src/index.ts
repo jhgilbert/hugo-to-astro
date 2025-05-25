@@ -2,25 +2,44 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 import { ulid } from "ulid";
-import { HUGO_SITE_DIR } from "./config";
-import { stageShortcodes } from "./shortcodeStaging";
+import { HUGO_SITE_DIR } from "./config.js";
+import { stageHugoSite } from "./shortcodeStaging.js";
 import { execSync } from "child_process";
+import {
+  getMarkdownFilePaths,
+  buildAstFromContentFiles,
+  getHugoOutputPath,
+} from "./mdFileProcessing.js";
+import Markdoc from "@markdoc/markdoc";
 
 function migrateContent() {
   console.log("Migrating content from Hugo to Astro...");
 
   console.log("\nMaking a temporary copy of the Hugo site...");
-  const hugoSiteCopy = makeTempHugoSiteCopy(HUGO_SITE_DIR);
+  const hugoSiteDupDir = makeTempHugoSiteCopy(HUGO_SITE_DIR);
 
-  console.log("\nStaging Hugo shortcodes...");
-  const shortcodesDir = path.join(hugoSiteCopy, "layouts", "shortcodes");
-  stageShortcodes(shortcodesDir);
+  console.log("\nStaging the Hugo site...");
+  stageHugoSite(hugoSiteDupDir);
 
   console.log("\nBuilding the Hugo site...");
-  const htmlDir = buildHugoSite(hugoSiteCopy);
+  const htmlDir = buildHugoSite(hugoSiteDupDir);
+
+  const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
+  console.log("\nMarkdown file paths:");
+  markdownFilePaths.forEach((mdFilePath) => {
+    console.log("Md file path:", mdFilePath);
+    const htmlFilePath = getHugoOutputPath(mdFilePath, hugoSiteDupDir);
+    console.log("Hugo output path:", htmlFilePath);
+    const ast = buildAstFromContentFiles({
+      mdFilePath,
+      htmlFilePath,
+    });
+    const fileContents = Markdoc.format(ast);
+    console.log("File contents:", `\n${fileContents}\n`);
+  });
 
   console.log("\nDeleting the temporary Hugo site copy...");
-  fs.rmSync(hugoSiteCopy, { recursive: true, force: true });
+  fs.rmSync(hugoSiteDupDir, { recursive: true, force: true });
   console.log("✅ Temporary Hugo site copy deleted.");
 }
 
