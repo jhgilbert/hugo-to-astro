@@ -1,30 +1,55 @@
 import fs from "fs";
-import * as cheerio from "cheerio";
 import Markdoc from "@markdoc/markdoc";
-
-// declare an object that matches tag names to a function that converts the tag to an AST node
-const tagToAstNode: Record<string, (element: Element) => any> = {
-  h1: (element) => {
-    return new Markdoc.Ast.Node("heading", { level: 1 }, []);
-  },
-};
+import { parse, DefaultTreeAdapterTypes } from "parse5";
 
 export function htmlToAst(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
-  const $ = cheerio.load(htmlContent);
+  const document = parse(htmlContent);
 
-  // get the article node
-  const articleNode = $("article").first();
+  const articleNode = findArticleNode(document);
+  if (!articleNode) {
+    throw new Error("No article node found in the document.");
+  }
 
-  articleNode.children().each((index, element) => {
-    const { tagName, attribs } = element;
-    console.log("Element:", JSON.stringify({ tagName, attribs }, null, 2));
-    console.log("Text:", $(element).text().trim());
-  });
-
-  return [];
+  traverseNode(articleNode);
 }
 
-function htmlNodeToAstNode(element: Element) {
-  const { tagName } = element;
+function traverseNode(node: DefaultTreeAdapterTypes.ChildNode, depth = 0) {
+  const indent = "  ".repeat(depth);
+  console.log(indent + "nodeName:", node.nodeName);
+
+  // Recurse into children if present
+  if ("childNodes" in node && Array.isArray(node.childNodes)) {
+    node.childNodes.forEach((child) => traverseNode(child, depth + 1));
+  }
+}
+
+function findArticleNode(document: DefaultTreeAdapterTypes.Document) {
+  for (const node of document.childNodes) {
+    const articleNode = scanForArticleNode(node);
+    if (articleNode) {
+      return articleNode;
+    }
+  }
+
+  return null;
+}
+
+function scanForArticleNode(
+  node: DefaultTreeAdapterTypes.ChildNode
+): DefaultTreeAdapterTypes.ChildNode | null {
+  if (node.nodeName === "article") {
+    return node;
+  }
+
+  if ("childNodes" in node && Array.isArray(node.childNodes)) {
+    for (const child of node.childNodes) {
+      const articleNode = scanForArticleNode(child);
+      if (articleNode) {
+        return articleNode;
+      }
+    }
+  }
+
+  return null;
 }
