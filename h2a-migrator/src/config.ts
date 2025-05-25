@@ -10,3 +10,4 @@ export const HUGO_SITE_DIR = __dirname + "/../../example_hugo_site";
 export const ASTRO_SITE_DIR = __dirname + "/../../example_astro_site";
 
 export const NODE_SKIP_CLASS = "h2a-skip";
+export const SHORTCODE_PROCESSING_FLAG = "h2a-shortcode-processing-flag";

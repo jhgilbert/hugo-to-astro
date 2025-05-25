@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { NODE_SKIP_CLASS } from "./config.js";
+import { NODE_SKIP_CLASS, SHORTCODE_PROCESSING_FLAG } from "./config.js";
 
 export function stageHugoSite(tempSiteDir: string) {
   createShortcodeManifestPartial(tempSiteDir);
@@ -39,7 +39,7 @@ function createShortcodeManifestPartial(tempSiteDir: string) {
 {{- with .Inner }}
   {{- $manifest = merge $manifest (dict "inner" .) }}
 {{- end }}
-<div
+<div class="${SHORTCODE_PROCESSING_FLAG}"
   data-shortcode-manifest='{{ $manifest | jsonify }}'>
 </div>
 `;
@@ -58,7 +58,7 @@ function stageShortcodeFile(path: string) {
 
   const newFileContents = `
 {{ partial "shortcode-manifest.html" . }}
-<div class="${NODE_SKIP_CLASS}">
+<div class="${NODE_SKIP_CLASS} ${SHORTCODE_PROCESSING_FLAG}">
 ${oldFileContents}
 </div>`;
 
