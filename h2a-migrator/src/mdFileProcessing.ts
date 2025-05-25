@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Markdoc from "@markdoc/markdoc";
-import { html } from "parse5";
-import { htmlToAst } from "./htmlParsing";
+import { htmlToAst } from "./htmlParsing.js";
 
 export function getMarkdownFilePaths(dir: string) {
   const files = fs.readdirSync(dir);

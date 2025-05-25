@@ -2,14 +2,14 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 import { ulid } from "ulid";
-import { HUGO_SITE_DIR } from "./config";
-import { stageShortcodes } from "./shortcodeStaging";
+import { HUGO_SITE_DIR } from "./config.js";
+import { stageShortcodes } from "./shortcodeStaging.js";
 import { execSync } from "child_process";
 import {
   getMarkdownFilePaths,
   buildAstFromContentFiles,
   getHugoOutputPath,
-} from "./mdFileProcessing";
+} from "./mdFileProcessing.js";
 import Markdoc from "@markdoc/markdoc";
 
 function migrateContent() {

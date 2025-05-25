@@ -1,5 +1,13 @@
 import fs from "fs";
 import * as cheerio from "cheerio";
+import Markdoc from "@markdoc/markdoc";
+
+// declare an object that matches tag names to a function that converts the tag to an AST node
+const tagToAstNode: Record<string, (element: Element) => any> = {
+  h1: (element) => {
+    return new Markdoc.Ast.Node("heading", { level: 1 }, []);
+  },
+};
 
 export function htmlToAst(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
@@ -19,7 +27,4 @@ export function htmlToAst(htmlFilePath: string) {
 
 function htmlNodeToAstNode(element: Element) {
   const { tagName } = element;
-
-  switch (tagName) {
-  }
 }
