@@ -1,7 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { NODE_SKIP_CLASS } from "./config.js";
 
-export function stageShortcodes(dir: string) {
+export function stageHugoSite(tempSiteDir: string) {
+  createShortcodeManifestPartial(tempSiteDir);
+  const shortcodesDir = path.join(tempSiteDir, "layouts", "shortcodes");
+  stageShortcodes(shortcodesDir);
+}
+
+function stageShortcodes(dir: string) {
   const shortcodeFiles = fs.readdirSync(dir);
 
   for (const file of shortcodeFiles) {
@@ -17,6 +24,28 @@ export function stageShortcodes(dir: string) {
   }
 }
 
+function createShortcodeManifestPartial(tempSiteDir: string) {
+  const partialsDir = path.join(tempSiteDir, "layouts", "partials");
+
+  // Ensure the partials directory exists
+  if (!fs.existsSync(partialsDir)) {
+    fs.mkdirSync(partialsDir, { recursive: true });
+  }
+
+  const manifestFilePath = path.join(partialsDir, "shortcode-manifest.html");
+
+  const manifestFileContents = `
+{{- $manifest := dict "name" .Name "params" .Params -}}
+{{- with .Inner }}
+  {{- $manifest = merge $manifest (dict "inner" .) }}
+{{- end }}
+<div
+  data-shortcode-manifest='{{ $manifest | jsonify }}'>
+</div>
+`;
+  fs.writeFileSync(manifestFilePath, manifestFileContents);
+}
+
 /**
  * Wrap each shortcode file in a div, and add a script tag
  * containing any params passed to the shortcode.
@@ -29,7 +58,7 @@ function stageShortcodeFile(path: string) {
 
   const newFileContents = `
 {{ partial "shortcode-manifest.html" . }}
-<div class="hugo-shortcode">
+<div class="${NODE_SKIP_CLASS}">
 ${oldFileContents}
 </div>`;
 

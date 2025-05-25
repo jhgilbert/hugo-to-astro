@@ -1,7 +1,0 @@
-{{- $manifest := dict "name" .Name "params" .Params -}}
-{{- with .Inner }}
-  {{- $manifest = merge $manifest (dict "inner" .) }}
-{{- end }}
-<div
-  data-shortcode-manifest='{{ $manifest | jsonify }}'>
-</div>

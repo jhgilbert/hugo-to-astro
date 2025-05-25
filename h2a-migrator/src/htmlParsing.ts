@@ -1,6 +1,6 @@
 import fs from "fs";
-import Markdoc from "@markdoc/markdoc";
 import { parse, DefaultTreeAdapterTypes } from "parse5";
+import { NODE_SKIP_CLASS } from "./config.js";
 
 export function htmlToAst(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
@@ -12,6 +12,25 @@ export function htmlToAst(htmlFilePath: string) {
   }
 
   traverseNode(articleNode);
+}
+
+function nodeHasClass(
+  node: DefaultTreeAdapterTypes.ChildNode,
+  className: string
+): boolean {
+  if (
+    node.nodeName !== "div" ||
+    !("attrs" in node) ||
+    !Array.isArray(node.attrs)
+  ) {
+    return false;
+  }
+  const classAttr = node.attrs.find((attr) => attr.name === "class");
+  if (classAttr && classAttr.value) {
+    const classes = classAttr.value.split(" ");
+    return classes.includes(className);
+  }
+  return false;
 }
 
 function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
@@ -40,6 +59,10 @@ function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
 function traverseNode(node: DefaultTreeAdapterTypes.ChildNode, depth = 0) {
   const indent = "  ".repeat(depth);
   console.log(indent + "nodeName:", node.nodeName);
+
+  if (nodeHasClass(node, NODE_SKIP_CLASS)) {
+    return;
+  }
 
   // check whether the node has the class hugo-shortcode
   const shortcodeData = extractHugoShortcodeData(node);

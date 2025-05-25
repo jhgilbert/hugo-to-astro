@@ -1,3 +1,6 @@
+
+{{ partial "shortcode-manifest.html" . }}
+<div class="hugo-shortcode">
 {{ $border := .Get "border" | default "2px" }}
 {{ $color := .Get "color" | default "#c9c9c9" }}
 {{ $radius := .Get "radius" | default "0px" }}
@@ -14,4 +17,5 @@
     border: {{ $border }} solid black;
     border-radius: {{ $radius }};
   "></div>
+</div>
 </div>

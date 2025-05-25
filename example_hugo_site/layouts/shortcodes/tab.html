@@ -1,3 +1,6 @@
+
+{{ partial "shortcode-manifest.html" . }}
+<div class="hugo-shortcode">
 {{ $id := .Get "id" }}
 {{ $label := .Get "label" }}
 
@@ -5,4 +8,6 @@
 <label for="tab-{{ $id }}">{{ $label }}</label>
 <div class="tab-content">
   {{ .Inner | markdownify }}
+</div>
+
 </div>

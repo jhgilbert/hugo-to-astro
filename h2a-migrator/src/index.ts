@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { ulid } from "ulid";
 import { HUGO_SITE_DIR } from "./config.js";
-import { stageShortcodes } from "./shortcodeStaging.js";
+import { stageHugoSite } from "./shortcodeStaging.js";
 import { execSync } from "child_process";
 import {
   getMarkdownFilePaths,
@@ -18,9 +18,8 @@ function migrateContent() {
   console.log("\nMaking a temporary copy of the Hugo site...");
   const hugoSiteDupDir = makeTempHugoSiteCopy(HUGO_SITE_DIR);
 
-  console.log("\nStaging Hugo shortcodes...");
-  const shortcodesDir = path.join(hugoSiteDupDir, "layouts", "shortcodes");
-  stageShortcodes(shortcodesDir);
+  console.log("\nStaging the Hugo site...");
+  stageHugoSite(hugoSiteDupDir);
 
   console.log("\nBuilding the Hugo site...");
   const htmlDir = buildHugoSite(hugoSiteDupDir);
