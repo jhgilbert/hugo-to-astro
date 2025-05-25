@@ -1,0 +1,17 @@
+{
+  "name": "h2a-migrator",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "migrate": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@markdoc/markdoc": "^0.5.2",
+    "@types/node": "^22.15.21",
+    "typescript": "^5.8.3",
+    "ulid": "^3.0.0"
+  }
+}

@@ -1,8 +1,1 @@
 *.DS_Store
-
-# Hugo build
-example_hugo_site/public/
-example_hugo_site/resources/
-
-# Hugo cache
-example_hugo_site/.hugo_build.lock
