@@ -5,7 +5,11 @@ import { ulid } from "ulid";
 import { HUGO_SITE_DIR } from "./config";
 import { stageShortcodes } from "./shortcodeStaging";
 import { execSync } from "child_process";
-import { getMarkdownFilePaths, mdFileToAst } from "./mdFileProcessing";
+import {
+  getMarkdownFilePaths,
+  buildAstFromContentFiles,
+  getHugoOutputPath,
+} from "./mdFileProcessing";
 import Markdoc from "@markdoc/markdoc";
 
 function migrateContent() {
@@ -23,9 +27,14 @@ function migrateContent() {
 
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
   console.log("\nMarkdown file paths:");
-  markdownFilePaths.forEach((filePath) => {
-    console.log(filePath);
-    const ast = mdFileToAst(filePath);
+  markdownFilePaths.forEach((mdFilePath) => {
+    console.log("Md file path:", mdFilePath);
+    const htmlFilePath = getHugoOutputPath(mdFilePath, hugoSiteDupDir);
+    console.log("Hugo output path:", htmlFilePath);
+    const ast = buildAstFromContentFiles({
+      mdFilePath,
+      htmlFilePath,
+    });
     const fileContents = Markdoc.format(ast);
     console.log("File contents:", `\n${fileContents}\n`);
   });
