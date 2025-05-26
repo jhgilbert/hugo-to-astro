@@ -2,7 +2,7 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 import { ulid } from "ulid";
-import { HUGO_SITE_DIR } from "./config.js";
+import { HUGO_SITE_DIR, OUTPUT_DIR } from "./config.js";
 import { stageHugoSite } from "./shortcodeStaging.js";
 import { execSync } from "child_process";
 import {
@@ -10,7 +10,6 @@ import {
   buildAstFromContentFiles,
   getHugoOutputPath,
 } from "./mdFileProcessing.js";
-import Markdoc from "@markdoc/markdoc";
 
 function migrateContent() {
   console.log("Migrating content from Hugo to Astro...");
@@ -24,18 +23,36 @@ function migrateContent() {
   console.log("\nBuilding the Hugo site...");
   const htmlDir = buildHugoSite(hugoSiteDupDir);
 
+  // Delete the old out folder
+  if (fs.existsSync(OUTPUT_DIR)) {
+    fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
+  }
+  // Make a new out folder
+  fs.mkdirSync(path.dirname(OUTPUT_DIR), { recursive: true });
+
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
   console.log("\nMarkdown file paths:");
   markdownFilePaths.forEach((mdFilePath) => {
     console.log("Md file path:", mdFilePath);
     const htmlFilePath = getHugoOutputPath(mdFilePath, hugoSiteDupDir);
     console.log("Hugo output path:", htmlFilePath);
-    const ast = buildAstFromContentFiles({
+    const tree = buildAstFromContentFiles({
       mdFilePath,
       htmlFilePath,
     });
-    const fileContents = Markdoc.format(ast);
-    console.log("File contents:", `\n${fileContents}\n`);
+
+    // const fileContents = Markdoc.format(ast);
+    // Write file to the output directory
+    const outputFilePath = path.join(
+      OUTPUT_DIR,
+      path.relative(hugoSiteDupDir, mdFilePath).replace(/\.md$/, ".json")
+    );
+
+    // Ensure the output directory exists
+    fs.mkdirSync(path.dirname(outputFilePath), { recursive: true });
+
+    // make a message if no tree is found
+    fs.writeFileSync(outputFilePath, JSON.stringify(tree, null, 2));
   });
 
   console.log("\nDeleting the temporary Hugo site copy...");

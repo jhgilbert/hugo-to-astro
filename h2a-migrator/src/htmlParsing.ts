@@ -2,16 +2,26 @@ import fs from "fs";
 import { parse, DefaultTreeAdapterTypes } from "parse5";
 import { NODE_SKIP_CLASS } from "./config.js";
 
+interface TreeNode {
+  type: "shortcode" | "htmlTag";
+  data?: any;
+  children: TreeNode[];
+}
+
 export function htmlToAst(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
   const document = parse(htmlContent);
 
-  const articleNode = findArticleNode(document);
-  if (!articleNode) {
+  const articleHtmlNode = findArticleNode(document);
+  if (!articleHtmlNode) {
     throw new Error("No article node found in the document.");
   }
 
-  traverseNode(articleNode);
+  const tree = buildTreeNode({ sourceHtmlNode: articleHtmlNode });
+  if (tree) {
+    console.log(`\n\nSuccessfully built tree for ${htmlFilePath}\n\n`);
+  }
+  return tree;
 }
 
 function nodeHasClass(
@@ -56,28 +66,52 @@ function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
   return null;
 }
 
-function traverseNode(node: DefaultTreeAdapterTypes.ChildNode, depth = 0) {
-  const indent = "  ".repeat(depth);
-  console.log(indent + "nodeName:", node.nodeName);
+function buildTreeNode(p: {
+  sourceHtmlNode: DefaultTreeAdapterTypes.ChildNode;
+}): TreeNode | null {
+  let result: TreeNode | null = null;
 
-  if (nodeHasClass(node, NODE_SKIP_CLASS)) {
-    return;
+  /*
+  if (nodeHasClass(p.sourceHtmlNode, NODE_SKIP_CLASS)) {
+    return result;
   }
+  */
 
-  // check whether the node has the class hugo-shortcode
-  const shortcodeData = extractHugoShortcodeData(node);
+  const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
-    console.log(
-      indent + "  Shortcode data:",
-      JSON.stringify(shortcodeData, null, 2)
-    );
-    return;
+    result = {
+      type: "shortcode",
+      data: shortcodeData,
+      children: [],
+    };
+  } else {
+    // Remove circular references
+    // @ts-ignore, we aren't actually going to use childNodes
+    // so we don't care whether it's defined or not
+    const { parentNode, childNodes, namespaceURI, ...data } = p.sourceHtmlNode;
+    result = {
+      type: "htmlTag",
+      data,
+      children: [],
+    };
   }
 
   // Recurse into children if present
-  if ("childNodes" in node && Array.isArray(node.childNodes)) {
-    node.childNodes.forEach((child) => traverseNode(child, depth + 1));
+  if (
+    "childNodes" in p.sourceHtmlNode &&
+    Array.isArray(p.sourceHtmlNode.childNodes)
+  ) {
+    p.sourceHtmlNode.childNodes.forEach((child) => {
+      const treeNode = buildTreeNode({
+        sourceHtmlNode: child,
+      });
+      if (treeNode) {
+        result.children.push(treeNode);
+      }
+    });
   }
+
+  return result;
 }
 
 function findArticleNode(document: DefaultTreeAdapterTypes.Document) {

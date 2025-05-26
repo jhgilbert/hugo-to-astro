@@ -34,7 +34,7 @@ export function buildAstFromContentFiles(p: {
     []
   );
 
-  htmlToAst(p.htmlFilePath);
+  return htmlToAst(p.htmlFilePath);
 
   return safeAst;
 }
