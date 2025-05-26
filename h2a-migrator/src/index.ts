@@ -10,6 +10,7 @@ import {
   buildAstFromContentFiles,
   getHugoOutputPath,
 } from "./mdFileProcessing.js";
+import Markdoc from "@markdoc/markdoc";
 
 function migrateContent() {
   console.log("Migrating content from Hugo to Astro...");
@@ -32,16 +33,15 @@ function migrateContent() {
 
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
   console.log("\nMarkdown file paths:");
+
   markdownFilePaths.forEach((mdFilePath) => {
-    console.log("Md file path:", mdFilePath);
+    // Convert the file to a data structure
     const htmlFilePath = getHugoOutputPath(mdFilePath, hugoSiteDupDir);
-    console.log("Hugo output path:", htmlFilePath);
     const tree = buildAstFromContentFiles({
       mdFilePath,
       htmlFilePath,
     });
 
-    // const fileContents = Markdoc.format(ast);
     // Write file to the output directory
     const outputFilePath = path.join(
       OUTPUT_DIR,
@@ -53,6 +53,8 @@ function migrateContent() {
 
     // make a message if no tree is found
     fs.writeFileSync(outputFilePath, JSON.stringify(tree, null, 2));
+
+    writeTestTarget(mdFilePath, htmlFilePath, hugoSiteDupDir);
   });
 
   console.log("\nDeleting the temporary Hugo site copy...");
@@ -61,6 +63,46 @@ function migrateContent() {
 }
 
 migrateContent();
+
+function writeTestTarget(
+  mdFilePath: string,
+  htmlFilePath: string,
+  hugoSiteDupDir: string
+) {
+  const targetsDir = path.join(OUTPUT_DIR, "test_targets");
+
+  const unit = path.basename(mdFilePath, path.extname(mdFilePath));
+
+  // Make an outputDir that replaces the hugoSiteDupDir with the targetsDir
+  let outputDir = path.join(
+    targetsDir,
+    path.relative(hugoSiteDupDir, path.dirname(mdFilePath))
+  );
+  outputDir = path.join(outputDir, unit);
+
+  // Make an outputDir that is just the filename without the extension
+
+  console.log(`Writing test target for ${mdFilePath} to ${outputDir}`);
+
+  // ensure the outputDir exists
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  // get the file contents
+  const fileContents = fs.readFileSync(mdFilePath, "utf-8");
+
+  fs.writeFileSync(outputDir + `/${unit}.md`, fileContents);
+
+  // write the html contents to the test targets directory
+  const htmlContents = fs.readFileSync(htmlFilePath, "utf-8");
+  fs.writeFileSync(outputDir + `/${unit}.html`, htmlContents);
+
+  // make an AST and write that to the test targets directory
+  const ast = Markdoc.parse(fileContents);
+  fs.writeFileSync(
+    outputDir + `/${unit}.ast.json`,
+    JSON.stringify(ast, null, 2)
+  );
+}
 
 function makeTempHugoSiteCopy(sitePath: string) {
   console.log("\nMaking a temporary copy of the Hugo site...");
