@@ -21,8 +21,7 @@ function migrateContent() {
   console.log("\nStaging the Hugo site...");
   stageHugoSite(hugoSiteDupDir);
 
-  console.log("\nBuilding the Hugo site...");
-  const htmlDir = buildHugoSite(hugoSiteDupDir);
+  buildHugoSite(hugoSiteDupDir);
 
   // Delete the old out folder
   if (fs.existsSync(OUTPUT_DIR)) {
@@ -79,10 +78,6 @@ function writeTestTarget(
     path.relative(hugoSiteDupDir, path.dirname(mdFilePath))
   );
   outputDir = path.join(outputDir, unit);
-
-  // Make an outputDir that is just the filename without the extension
-
-  console.log(`Writing test target for ${mdFilePath} to ${outputDir}`);
 
   // ensure the outputDir exists
   fs.mkdirSync(outputDir, { recursive: true });

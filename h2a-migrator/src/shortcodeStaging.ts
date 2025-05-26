@@ -14,7 +14,6 @@ function stageShortcodes(dir: string) {
   for (const file of shortcodeFiles) {
     const filePath = path.join(dir, file);
     if (fs.statSync(filePath).isFile()) {
-      console.log(`Wrapping shortcode file: ${file}`);
       stageShortcodeFile(filePath);
     }
     // recursively wrap shortcodes in subdirectories

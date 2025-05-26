@@ -1,12 +1,6 @@
 import fs from "fs";
 import { parse, DefaultTreeAdapterTypes } from "parse5";
-import { NODE_SKIP_CLASS } from "./config.js";
-
-interface TreeNode {
-  type: "shortcode" | "htmlTag";
-  data?: any;
-  children: TreeNode[];
-}
+import { ParsedContentEntry } from "./schemas.js";
 
 export function htmlToAst(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
@@ -18,9 +12,7 @@ export function htmlToAst(htmlFilePath: string) {
   }
 
   const tree = buildTreeNode({ sourceHtmlNode: articleHtmlNode });
-  if (tree) {
-    console.log(`\n\nSuccessfully built tree for ${htmlFilePath}\n\n`);
-  }
+
   return tree;
 }
 
@@ -68,8 +60,8 @@ function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
 
 function buildTreeNode(p: {
   sourceHtmlNode: DefaultTreeAdapterTypes.ChildNode;
-}): TreeNode | null {
-  let result: TreeNode | null = null;
+}): ParsedContentEntry | null {
+  let result: ParsedContentEntry | null = null;
 
   /*
   if (nodeHasClass(p.sourceHtmlNode, NODE_SKIP_CLASS)) {
@@ -80,8 +72,10 @@ function buildTreeNode(p: {
   const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
     result = {
-      type: "shortcode",
-      data: shortcodeData,
+      item: {
+        type: "shortcode",
+        data: shortcodeData,
+      },
       children: [],
     };
   } else {
@@ -90,8 +84,10 @@ function buildTreeNode(p: {
     // so we don't care whether it's defined or not
     const { parentNode, childNodes, namespaceURI, ...data } = p.sourceHtmlNode;
     result = {
-      type: "htmlTag",
-      data,
+      item: {
+        type: "htmlTag",
+        data,
+      },
       children: [],
     };
   }
@@ -105,6 +101,7 @@ function buildTreeNode(p: {
       const treeNode = buildTreeNode({
         sourceHtmlNode: child,
       });
+
       if (treeNode) {
         result.children.push(treeNode);
       }
