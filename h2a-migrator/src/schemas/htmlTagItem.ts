@@ -2,7 +2,7 @@ import { z } from "zod";
 
 /**
  * Every expected HTML tag that we expect to process
- * from the compiled content.
+ * from the compiled content. Not in use yet.
  */
 const HtmlTagNamesSchema = z.enum([
   // the page
@@ -23,15 +23,17 @@ const HtmlTagNamesSchema = z.enum([
   "a",
 ]);
 
-// An item that represents an HTML tag
-// in the compiled content
+/**
+ * An item representing an HTML tag encountered
+ * in the compiled HTML content, such as an anchor tag.
+ */
 export const HtmlTagItemSchema = z
   .object({
     type: z.literal("htmlTag"),
     data: z
       .object({
-        nodeName: HtmlTagNamesSchema,
-        tagName: HtmlTagNamesSchema,
+        nodeName: z.string(), // TODO: Control expectations with HtmlTagNamesSchema
+        tagName: z.string(), // TODO: Control expectations with HtmlTagNamesSchema
         attrs: z
           .array(
             z.object({
@@ -44,3 +46,9 @@ export const HtmlTagItemSchema = z
       .strict(),
   })
   .strict();
+
+/**
+ * An item representing an HTML tag encountered
+ * in the compiled HTML content, such as an anchor tag.
+ */
+export type HtmlTagItem = z.infer<typeof HtmlTagItemSchema>;
