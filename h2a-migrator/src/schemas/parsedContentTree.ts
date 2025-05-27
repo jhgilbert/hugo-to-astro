@@ -3,12 +3,20 @@ import { ShortcodeItemSchema } from "./shortcodeItem.js";
 import { HtmlTagItemSchema } from "./htmlTagItem.js";
 import { TextItemSchema } from "./textItem.js";
 
+/**
+ * A chunk of extracted content,
+ * such as a shortcode, HTML tag, or snippet of text.
+ */
 export const ContentItemSchema = z.discriminatedUnion("type", [
   ShortcodeItemSchema,
   HtmlTagItemSchema,
   TextItemSchema,
 ]);
 
+/**
+ * A chunk of extracted content,
+ * such as a shortcode, HTML tag, or snippet of text.
+ */
 export type ContentItem = z.infer<typeof ContentItemSchema>;
 
 /**
