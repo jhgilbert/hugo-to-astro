@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import Markdoc from "@markdoc/markdoc";
-import { htmlToAst } from "./htmlParsing.js";
+import os from "os";
+import { ulid } from "ulid";
 
 export function getMarkdownFilePaths(dir: string) {
   const files = fs.readdirSync(dir);
@@ -19,24 +19,6 @@ export function getMarkdownFilePaths(dir: string) {
   }
 
   return markdownFiles;
-}
-
-export function buildAstFromContentFiles(p: {
-  mdFilePath: string;
-  htmlFilePath: string;
-}) {
-  const source = fs.readFileSync(p.mdFilePath, "utf-8");
-  const dangerousAst = Markdoc.parse(source);
-
-  const safeAst = new Markdoc.Ast.Node(
-    dangerousAst.type,
-    dangerousAst.attributes,
-    []
-  );
-
-  return htmlToAst(p.htmlFilePath);
-
-  return safeAst;
 }
 
 export function getHugoOutputPath(
@@ -63,4 +45,15 @@ export function getHugoOutputPath(
     // page.md → /page/index.html
     return path.join(siteRoot, "public", parsed.dir, parsed.name, "index.html");
   }
+}
+
+export function makeTempHugoSiteCopy(sitePath: string) {
+  console.log("\nMaking a temporary copy of the Hugo site...");
+
+  const tempDir = path.join(os.tmpdir(), `temp-hugo-sites/${ulid()}`);
+  fs.cpSync(sitePath, tempDir, {
+    recursive: true,
+    force: true,
+  });
+  return tempDir;
 }

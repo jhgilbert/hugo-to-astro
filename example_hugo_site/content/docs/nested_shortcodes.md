@@ -5,14 +5,14 @@ weight: 3
 
 # Nested Shortcodes in Markup
 
-{{< tabs >}}
+{{% tabs %}}
 
-{{< tab id="a" label="First" checked="true" >}}
+{{% tab id="a" label="First" checked="true" %}}
 This is the **first** tab.
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab id="b" label="Second" >}}
+{{% tab id="b" label="Second" %}}
 This is the **second** tab.
-{{< /tab >}}
+{{% /tab %}}
 
-{{< /tabs >}}
+{{% /tabs %}}

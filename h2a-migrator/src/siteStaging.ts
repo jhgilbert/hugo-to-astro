@@ -14,7 +14,6 @@ function stageShortcodes(dir: string) {
   for (const file of shortcodeFiles) {
     const filePath = path.join(dir, file);
     if (fs.statSync(filePath).isFile()) {
-      console.log(`Wrapping shortcode file: ${file}`);
       stageShortcodeFile(filePath);
     }
     // recursively wrap shortcodes in subdirectories
@@ -35,14 +34,16 @@ function createShortcodeManifestPartial(tempSiteDir: string) {
   const manifestFilePath = path.join(partialsDir, "shortcode-manifest.html");
 
   const manifestFileContents = `
-{{- $manifest := dict "name" .Name "params" .Params -}}
+{{- $manifest := dict "nodeName" .Name "params" .Params -}}
 {{- with .Inner }}
-  {{- $manifest = merge $manifest (dict "inner" .) }}
+  {{- $inner := printf "%s" . | safeHTML }}
+  {{- $manifest = merge $manifest (dict "inner" $inner) }}
 {{- end }}
 <div class="${SHORTCODE_PROCESSING_FLAG}"
   data-shortcode-manifest='{{ $manifest | jsonify }}'>
 </div>
 `;
+
   fs.writeFileSync(manifestFilePath, manifestFileContents);
 }
 

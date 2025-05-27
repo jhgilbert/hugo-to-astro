@@ -1,14 +1,11 @@
 import fs from "fs";
 import { parse, DefaultTreeAdapterTypes } from "parse5";
-import { NODE_SKIP_CLASS } from "./config.js";
+import {
+  ContentItemSchema,
+  ParsedContentTree,
+} from "./schemas/parsedContentTree.js";
 
-interface TreeNode {
-  type: "shortcode" | "htmlTag";
-  data?: any;
-  children: TreeNode[];
-}
-
-export function htmlToAst(htmlFilePath: string) {
+export function htmlToParsedContentTree(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
   const document = parse(htmlContent);
 
@@ -17,10 +14,8 @@ export function htmlToAst(htmlFilePath: string) {
     throw new Error("No article node found in the document.");
   }
 
-  const tree = buildTreeNode({ sourceHtmlNode: articleHtmlNode });
-  if (tree) {
-    console.log(`\n\nSuccessfully built tree for ${htmlFilePath}\n\n`);
-  }
+  const tree = buildParsedContentTree({ sourceHtmlNode: articleHtmlNode });
+
   return tree;
 }
 
@@ -66,22 +61,22 @@ function extractHugoShortcodeData(node: DefaultTreeAdapterTypes.ChildNode) {
   return null;
 }
 
-function buildTreeNode(p: {
+function buildParsedContentTree(p: {
   sourceHtmlNode: DefaultTreeAdapterTypes.ChildNode;
-}): TreeNode | null {
-  let result: TreeNode | null = null;
-
-  /*
-  if (nodeHasClass(p.sourceHtmlNode, NODE_SKIP_CLASS)) {
-    return result;
-  }
-  */
+}): ParsedContentTree | null {
+  let result: ParsedContentTree | null = null;
 
   const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
+    console.log(
+      `Found shortcode: ${shortcodeData.nodeName} with data:`,
+      shortcodeData
+    );
     result = {
-      type: "shortcode",
-      data: shortcodeData,
+      item: {
+        type: "shortcode",
+        data: shortcodeData,
+      },
       children: [],
     };
   } else {
@@ -89,22 +84,44 @@ function buildTreeNode(p: {
     // @ts-ignore, we aren't actually going to use childNodes
     // so we don't care whether it's defined or not
     const { parentNode, childNodes, namespaceURI, ...data } = p.sourceHtmlNode;
-    result = {
-      type: "htmlTag",
-      data,
-      children: [],
-    };
+
+    if (!("tagName" in data)) {
+      if (data.nodeName === "#text") {
+        // Handle text nodes
+        result = {
+          item: {
+            type: "text",
+            data: { nodeName: "#text", value: data.value || "" },
+          },
+          children: [],
+        };
+      }
+    } else {
+      result = {
+        item: {
+          type: "htmlTag",
+          data,
+        },
+        children: [],
+      };
+    }
+  }
+
+  if (result) {
+    result.item = ContentItemSchema.parse(result.item);
   }
 
   // Recurse into children if present
   if (
+    result &&
     "childNodes" in p.sourceHtmlNode &&
     Array.isArray(p.sourceHtmlNode.childNodes)
   ) {
     p.sourceHtmlNode.childNodes.forEach((child) => {
-      const treeNode = buildTreeNode({
+      const treeNode = buildParsedContentTree({
         sourceHtmlNode: child,
       });
+
       if (treeNode) {
         result.children.push(treeNode);
       }
