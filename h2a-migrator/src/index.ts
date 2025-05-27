@@ -1,16 +1,15 @@
-import os from "os";
 import fs from "fs";
 import path from "path";
-import { ulid } from "ulid";
 import { HUGO_SITE_DIR, OUTPUT_DIR } from "./config.js";
-import { stageHugoSite } from "./shortcodeStaging.js";
+import { stageHugoSite } from "./siteStaging.js";
 import { execSync } from "child_process";
 import {
   getMarkdownFilePaths,
-  buildAstFromContentFiles,
   getHugoOutputPath,
-} from "./mdFileProcessing.js";
+  makeTempHugoSiteCopy,
+} from "./fileUtils.js";
 import Markdoc from "@markdoc/markdoc";
+import { htmlToParsedContentTree } from "./htmlParsing.js";
 
 function migrateContent() {
   console.log("Migrating content from Hugo to Astro...");
@@ -36,10 +35,7 @@ function migrateContent() {
   markdownFilePaths.forEach((mdFilePath) => {
     // Convert the file to a data structure
     const htmlFilePath = getHugoOutputPath(mdFilePath, hugoSiteDupDir);
-    const tree = buildAstFromContentFiles({
-      mdFilePath,
-      htmlFilePath,
-    });
+    const tree = htmlToParsedContentTree(htmlFilePath);
 
     // Write file to the output directory
     const outputFilePath = path.join(
@@ -97,17 +93,6 @@ function writeTestTarget(
     outputDir + `/${unit}.ast.json`,
     JSON.stringify(ast, null, 2)
   );
-}
-
-function makeTempHugoSiteCopy(sitePath: string) {
-  console.log("\nMaking a temporary copy of the Hugo site...");
-
-  const tempDir = path.join(os.tmpdir(), `temp-hugo-sites/${ulid()}`);
-  fs.cpSync(sitePath, tempDir, {
-    recursive: true,
-    force: true,
-  });
-  return tempDir;
 }
 
 function buildHugoSite(sitePath: string) {
