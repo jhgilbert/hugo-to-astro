@@ -36,12 +36,14 @@ function createShortcodeManifestPartial(tempSiteDir: string) {
   const manifestFileContents = `
 {{- $manifest := dict "nodeName" .Name "params" .Params -}}
 {{- with .Inner }}
-  {{- $manifest = merge $manifest (dict "inner" .) }}
+  {{- $inner := printf "%s" . | safeHTML }}
+  {{- $manifest = merge $manifest (dict "inner" $inner) }}
 {{- end }}
 <div class="${SHORTCODE_PROCESSING_FLAG}"
   data-shortcode-manifest='{{ $manifest | jsonify }}'>
 </div>
 `;
+
   fs.writeFileSync(manifestFilePath, manifestFileContents);
 }
 

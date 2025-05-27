@@ -20,7 +20,7 @@ function migrateContent() {
   console.log("\nStaging the Hugo site...");
   stageHugoSite(hugoSiteDupDir);
 
-  buildHugoSite(hugoSiteDupDir);
+  const htmlDir = buildHugoSite(hugoSiteDupDir);
 
   // Delete the old out folder
   if (fs.existsSync(OUTPUT_DIR)) {
@@ -29,8 +29,15 @@ function migrateContent() {
   // Make a new out folder
   fs.mkdirSync(path.dirname(OUTPUT_DIR), { recursive: true });
 
+  // Write a copy of the html dir to the outdir for debugging purposes
+  const debugHtmlDir = path.join(OUTPUT_DIR, "build_html");
+  if (fs.existsSync(debugHtmlDir)) {
+    fs.rmSync(debugHtmlDir, { recursive: true, force: true });
+  }
+  fs.mkdirSync(debugHtmlDir, { recursive: true });
+  fs.cpSync(htmlDir, debugHtmlDir, { recursive: true });
+
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
-  console.log("\nMarkdown file paths:");
 
   markdownFilePaths.forEach((mdFilePath) => {
     // Convert the file to a data structure

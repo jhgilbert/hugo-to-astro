@@ -68,6 +68,10 @@ function buildParsedContentTree(p: {
 
   const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
+    console.log(
+      `Found shortcode: ${shortcodeData.nodeName} with data:`,
+      shortcodeData
+    );
     result = {
       item: {
         type: "shortcode",
