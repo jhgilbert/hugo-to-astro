@@ -34,7 +34,7 @@ function createShortcodeManifestPartial(tempSiteDir: string) {
   const manifestFilePath = path.join(partialsDir, "shortcode-manifest.html");
 
   const manifestFileContents = `
-{{- $manifest := dict "name" .Name "params" .Params -}}
+{{- $manifest := dict "nodeName" .Name "params" .Params -}}
 {{- with .Inner }}
   {{- $manifest = merge $manifest (dict "inner" .) }}
 {{- end }}

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 /**
  * Every expected HTML tag that we expect to process
- * from the compiled content. Not in use yet.
+ * from the compiled content. !!! NOT IN USE YET. !!!
  */
 const HtmlTagNamesSchema = z.enum([
   // the page
@@ -14,6 +14,8 @@ const HtmlTagNamesSchema = z.enum([
   "h4",
   "h5",
   "h6",
+  // images
+  "img",
   // text
   "p",
   // lists

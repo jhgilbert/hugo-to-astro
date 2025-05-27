@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Markdoc from "@markdoc/markdoc";
-import { htmlToAst } from "./htmlParsing.js";
+import { htmlToParsedContentTree } from "./htmlParsing.js";
 
 export function getMarkdownFilePaths(dir: string) {
   const files = fs.readdirSync(dir);
@@ -34,7 +34,7 @@ export function buildAstFromContentFiles(p: {
     []
   );
 
-  return htmlToAst(p.htmlFilePath);
+  return htmlToParsedContentTree(p.htmlFilePath);
 
   return safeAst;
 }

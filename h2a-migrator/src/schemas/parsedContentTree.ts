@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { ShortcodeItemSchema } from "./shortcodeItem";
-import { HtmlTagItemSchema } from "./htmlTagItem";
-import { TextItemSchema } from "./textItem";
+import { ShortcodeItemSchema } from "./shortcodeItem.js";
+import { HtmlTagItemSchema } from "./htmlTagItem.js";
+import { TextItemSchema } from "./textItem.js";
 
 export const ContentItemSchema = z.discriminatedUnion("type", [
   ShortcodeItemSchema,
