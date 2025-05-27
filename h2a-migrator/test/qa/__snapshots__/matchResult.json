@@ -1,0 +1,57 @@
+{
+  "match": false,
+  "missing": {},
+  "unexpected": {},
+  "countMismatches": [
+    {
+      "phrase": "as",
+      "expected": 4,
+      "actual": 5
+    },
+    {
+      "phrase": "a",
+      "expected": 39,
+      "actual": 40
+    },
+    {
+      "phrase": "s",
+      "expected": 34,
+      "actual": 38
+    },
+    {
+      "phrase": "t",
+      "expected": 52,
+      "actual": 59
+    },
+    {
+      "phrase": "https",
+      "expected": 2,
+      "actual": 5
+    },
+    {
+      "phrase": "www",
+      "expected": 1,
+      "actual": 3
+    },
+    {
+      "phrase": "google",
+      "expected": 1,
+      "actual": 3
+    },
+    {
+      "phrase": "com",
+      "expected": 1,
+      "actual": 3
+    },
+    {
+      "phrase": "astro",
+      "expected": 1,
+      "actual": 2
+    },
+    {
+      "phrase": "build",
+      "expected": 1,
+      "actual": 2
+    }
+  ]
+}

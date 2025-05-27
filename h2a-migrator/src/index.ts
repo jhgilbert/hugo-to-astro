@@ -31,7 +31,10 @@ function migrateContent() {
     // Write file to the output directory
     const outputFilePath = path.join(
       OUTPUT_DIR,
-      path.relative(hugoSiteDupDir, mdFilePath).replace(/\.md$/, ".pct.json")
+      path
+        .relative(hugoSiteDupDir, mdFilePath)
+        .replace("content/docs/", "pcts/")
+        .replace(/\.md$/, ".pct.json")
     );
 
     // Ensure the output directory exists
@@ -79,8 +82,16 @@ function writeTestFiles(
   // make an AST and write that to the test targets directory
   const ast = Markdoc.parse(fileContents);
   fs.writeFileSync(
-    outputDir + `/03_${unit}.naturalAst.json`,
+    outputDir + `/03_${unit}.natural.ast.json`,
     JSON.stringify(ast, null, 2)
+  );
+
+  // make a Markdoc file and write that to the test targets directory
+  const markdocFile = Markdoc.format(ast);
+  fs.writeFileSync(
+    outputDir + `/04_${unit}.natural.mdoc`,
+    markdocFile,
+    "utf-8"
   );
 }
 

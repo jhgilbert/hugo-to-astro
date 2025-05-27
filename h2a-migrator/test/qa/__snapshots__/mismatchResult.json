@@ -1,0 +1,177 @@
+{
+  "match": false,
+  "missing": {},
+  "unexpected": {},
+  "countMismatches": [
+    {
+      "phrase": "of",
+      "expected": 5,
+      "actual": 4
+    },
+    {
+      "phrase": "to",
+      "expected": 5,
+      "actual": 3
+    },
+    {
+      "phrase": "it",
+      "expected": 6,
+      "actual": 5
+    },
+    {
+      "phrase": "a",
+      "expected": 39,
+      "actual": 37
+    },
+    {
+      "phrase": "s",
+      "expected": 34,
+      "actual": 33
+    },
+    {
+      "phrase": "Figure",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Figure out",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Figure out how",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Figure out how to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Figure out how to migrate",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Figure out how to migrate to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "out",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "out how",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "out how to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "out how to migrate",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "out how to migrate to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "how",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "how to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "how to migrate",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "how to migrate to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "to migrate",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "to migrate to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "migrate",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "migrate to",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Astro",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Make",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Make some",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "some",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "Profit",
+      "expected": 2,
+      "actual": 1
+    },
+    {
+      "phrase": "t",
+      "expected": 52,
+      "actual": 50
+    },
+    {
+      "phrase": "https",
+      "expected": 2,
+      "actual": 4
+    },
+    {
+      "phrase": "www",
+      "expected": 1,
+      "actual": 3
+    },
+    {
+      "phrase": "google",
+      "expected": 1,
+      "actual": 3
+    },
+    {
+      "phrase": "com",
+      "expected": 1,
+      "actual": 3
+    }
+  ]
+}
