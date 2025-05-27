@@ -18,7 +18,7 @@ function migrateContent() {
   // Copy, stage, and build the Hugo site
   const hugoSiteDupDir = makeTempHugoSiteCopy(HUGO_SITE_DIR);
   stageHugoSite(hugoSiteDupDir);
-  buildHugoSite(hugoSiteDupDir);
+  buildHugoSite({ sitePath: hugoSiteDupDir, debug: true });
 
   // Process each Markdown file in the site's content directory
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
@@ -84,10 +84,10 @@ function writeTestFiles(
   );
 }
 
-function buildHugoSite(sitePath: string, debug: boolean = false): string {
+function buildHugoSite(p: { sitePath: string; debug?: boolean }): string {
   try {
     execSync("rm -rf public && hugo", {
-      cwd: sitePath,
+      cwd: p.sitePath,
       stdio: "inherit", // Passes output directly to console
     });
     console.log("✅ Hugo site built successfully.");
@@ -96,10 +96,10 @@ function buildHugoSite(sitePath: string, debug: boolean = false): string {
     throw err;
   }
 
-  const outputDir = path.join(sitePath, "public");
+  const outputDir = path.join(p.sitePath, "public");
 
   // Write a copy of the html dir to the outdir for debugging purposes
-  if (debug) {
+  if (p.debug) {
     const debugHtmlDir = path.join(OUTPUT_DIR, "build_html");
     if (fs.existsSync(debugHtmlDir)) {
       fs.rmSync(debugHtmlDir, { recursive: true, force: true });

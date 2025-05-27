@@ -1,11 +1,27 @@
 import fs from "fs";
 import path from "path";
-import { NODE_SKIP_CLASS, SHORTCODE_PROCESSING_FLAG } from "./config.js";
+import {
+  NODE_SKIP_CLASS,
+  SHORTCODE_PROCESSING_FLAG,
+  PARTIAL_PROCESSING_FLAG,
+} from "./config.js";
 
 export function stageHugoSite(tempSiteDir: string) {
+  const partialsDir = path.join(tempSiteDir, "layouts", "partials");
+
+  // Create the partials directory if it doesn't exist
+  if (!fs.existsSync(partialsDir)) {
+    fs.mkdirSync(partialsDir, { recursive: true });
+  }
+
+  // Stage the partials and shortcodes
+  stagePartials(partialsDir);
   createShortcodeManifestPartial(tempSiteDir);
+
   const shortcodesDir = path.join(tempSiteDir, "layouts", "shortcodes");
-  stageShortcodes(shortcodesDir);
+  if (fs.existsSync(shortcodesDir)) {
+    stageShortcodes(shortcodesDir);
+  }
 }
 
 function stageShortcodes(dir: string) {
@@ -21,6 +37,47 @@ function stageShortcodes(dir: string) {
       stageShortcodes(filePath);
     }
   }
+}
+
+function stagePartials(dir: string) {
+  const partialFiles = fs.readdirSync(dir);
+
+  for (const file of partialFiles) {
+    const filePath = path.join(dir, file);
+    if (fs.statSync(filePath).isFile()) {
+      stagePartialFile(filePath);
+    }
+    // recursively wrap shortcodes in subdirectories
+    else if (fs.statSync(filePath).isDirectory()) {
+      stagePartials(filePath);
+    }
+  }
+}
+
+function stagePartialFile(path: string) {
+  // skip the injected shortcode manifest partial if present
+  if (path.endsWith("shortcode-manifest.html")) {
+    return;
+  }
+
+  const oldFileContents = fs.readFileSync(path, "utf-8");
+
+  const newFileContents = `
+{{- $caller := . }}
+{{- $manifest := dict
+    "partialPath" .Template.Name
+    "pagePath" (or .Page.File.Path "N/A")
+    "params" (dict "example" "value")
+}}
+
+<div class="partial-manifest"
+  data-partial-manifest='{{ $manifest | jsonify }}'>
+</div>
+<div class="${PARTIAL_PROCESSING_FLAG} ${NODE_SKIP_CLASS}">
+${oldFileContents}
+</div>`;
+
+  fs.writeFileSync(path, newFileContents);
 }
 
 function createShortcodeManifestPartial(tempSiteDir: string) {
