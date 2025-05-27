@@ -7,36 +7,20 @@ import {
   getMarkdownFilePaths,
   getHugoOutputPath,
   makeTempHugoSiteCopy,
+  resetOutDir,
 } from "./fileUtils.js";
 import Markdoc from "@markdoc/markdoc";
 import { htmlToParsedContentTree } from "./htmlParsing.js";
 
 function migrateContent() {
-  console.log("Migrating content from Hugo to Astro...");
+  resetOutDir();
 
-  console.log("\nMaking a temporary copy of the Hugo site...");
+  // Copy, stage, and build the Hugo site
   const hugoSiteDupDir = makeTempHugoSiteCopy(HUGO_SITE_DIR);
-
-  console.log("\nStaging the Hugo site...");
   stageHugoSite(hugoSiteDupDir);
+  buildHugoSite(hugoSiteDupDir);
 
-  const htmlDir = buildHugoSite(hugoSiteDupDir);
-
-  // Delete the old out folder
-  if (fs.existsSync(OUTPUT_DIR)) {
-    fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
-  }
-  // Make a new out folder
-  fs.mkdirSync(path.dirname(OUTPUT_DIR), { recursive: true });
-
-  // Write a copy of the html dir to the outdir for debugging purposes
-  const debugHtmlDir = path.join(OUTPUT_DIR, "build_html");
-  if (fs.existsSync(debugHtmlDir)) {
-    fs.rmSync(debugHtmlDir, { recursive: true, force: true });
-  }
-  fs.mkdirSync(debugHtmlDir, { recursive: true });
-  fs.cpSync(htmlDir, debugHtmlDir, { recursive: true });
-
+  // Process each Markdown file in the site's content directory
   const markdownFilePaths = getMarkdownFilePaths(hugoSiteDupDir + "/content");
 
   markdownFilePaths.forEach((mdFilePath) => {
@@ -47,7 +31,7 @@ function migrateContent() {
     // Write file to the output directory
     const outputFilePath = path.join(
       OUTPUT_DIR,
-      path.relative(hugoSiteDupDir, mdFilePath).replace(/\.md$/, ".json")
+      path.relative(hugoSiteDupDir, mdFilePath).replace(/\.md$/, ".pct.json")
     );
 
     // Ensure the output directory exists
@@ -56,17 +40,15 @@ function migrateContent() {
     // make a message if no tree is found
     fs.writeFileSync(outputFilePath, JSON.stringify(tree, null, 2));
 
-    writeTestTarget(mdFilePath, htmlFilePath, hugoSiteDupDir);
+    writeTestFiles(mdFilePath, htmlFilePath, hugoSiteDupDir);
   });
 
-  console.log("\nDeleting the temporary Hugo site copy...");
   fs.rmSync(hugoSiteDupDir, { recursive: true, force: true });
-  console.log("✅ Temporary Hugo site copy deleted.");
 }
 
 migrateContent();
 
-function writeTestTarget(
+function writeTestFiles(
   mdFilePath: string,
   htmlFilePath: string,
   hugoSiteDupDir: string
@@ -88,23 +70,21 @@ function writeTestTarget(
   // get the file contents
   const fileContents = fs.readFileSync(mdFilePath, "utf-8");
 
-  fs.writeFileSync(outputDir + `/${unit}.md`, fileContents);
+  fs.writeFileSync(outputDir + `/01_${unit}.md`, fileContents);
 
   // write the html contents to the test targets directory
   const htmlContents = fs.readFileSync(htmlFilePath, "utf-8");
-  fs.writeFileSync(outputDir + `/${unit}.html`, htmlContents);
+  fs.writeFileSync(outputDir + `/02_${unit}.html`, htmlContents);
 
   // make an AST and write that to the test targets directory
   const ast = Markdoc.parse(fileContents);
   fs.writeFileSync(
-    outputDir + `/${unit}.ast.json`,
+    outputDir + `/03_${unit}.naturalAst.json`,
     JSON.stringify(ast, null, 2)
   );
 }
 
-function buildHugoSite(sitePath: string) {
-  console.log("🛠️  Building Hugo site...");
-
+function buildHugoSite(sitePath: string, debug: boolean = false): string {
   try {
     execSync("rm -rf public && hugo", {
       cwd: sitePath,
@@ -117,5 +97,16 @@ function buildHugoSite(sitePath: string) {
   }
 
   const outputDir = path.join(sitePath, "public");
+
+  // Write a copy of the html dir to the outdir for debugging purposes
+  if (debug) {
+    const debugHtmlDir = path.join(OUTPUT_DIR, "build_html");
+    if (fs.existsSync(debugHtmlDir)) {
+      fs.rmSync(debugHtmlDir, { recursive: true, force: true });
+    }
+    fs.mkdirSync(debugHtmlDir, { recursive: true });
+    fs.cpSync(outputDir, debugHtmlDir, { recursive: true });
+  }
+
   return outputDir;
 }

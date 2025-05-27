@@ -2,6 +2,20 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 import { ulid } from "ulid";
+import { OUTPUT_DIR } from "./config.js";
+
+/**
+ * Delete and recreate the output directory
+ * to ensure a clean slate for each run.
+ */
+export function resetOutDir() {
+  // Delete the old out folder
+  if (fs.existsSync(OUTPUT_DIR)) {
+    fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
+  }
+  // Make a new out folder
+  fs.mkdirSync(path.dirname(OUTPUT_DIR), { recursive: true });
+}
 
 export function getMarkdownFilePaths(dir: string) {
   const files = fs.readdirSync(dir);
@@ -55,5 +69,6 @@ export function makeTempHugoSiteCopy(sitePath: string) {
     recursive: true,
     force: true,
   });
+
   return tempDir;
 }

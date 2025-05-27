@@ -1,5 +1,5 @@
 import fs from "fs";
-import { parse, DefaultTreeAdapterTypes } from "parse5";
+import { parse, DefaultTreeAdapterTypes, parseFragment } from "parse5";
 import {
   ContentItemSchema,
   ParsedContentTree,
@@ -73,10 +73,6 @@ function buildParsedContentTree(p: {
 
   const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
-    console.log(
-      `Found shortcode: ${shortcodeData.nodeName} with data:`,
-      shortcodeData
-    );
     result = {
       item: {
         type: "shortcode",
@@ -120,7 +116,7 @@ function buildParsedContentTree(p: {
   if (result && result.item.type === "shortcode") {
     const inner = result.item.data.inner;
     if (inner) {
-      const innerHtml = parse(inner);
+      let innerHtml = parseFragment(inner);
       innerHtml.childNodes.forEach((child) => {
         const treeNode = buildParsedContentTree({
           sourceHtmlNode: child,
