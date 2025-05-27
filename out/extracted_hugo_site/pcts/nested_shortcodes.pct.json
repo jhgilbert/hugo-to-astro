@@ -1,0 +1,336 @@
+{
+  "item": {
+    "type": "htmlTag",
+    "data": {
+      "nodeName": "article",
+      "tagName": "article",
+      "attrs": [
+        {
+          "name": "class",
+          "value": "markdown book-article"
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h1",
+          "tagName": "h1",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "nested-shortcodes-in-markup"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  Nested Shortcodes in Markup\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#nested-shortcodes-in-markup"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "shortcode",
+        "data": {
+          "nodeName": "tabs",
+          "params": null,
+          "inner": "\n\n\n\n<div class=\"h2a-shortcode-processing-flag\"\n  data-shortcode-manifest='{&#34;inner&#34;:&#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;checked&#34;:&#34;true&#34;,&#34;id&#34;:&#34;a&#34;,&#34;label&#34;:&#34;First&#34;}}'>\n</div>\n\n<div class=\"h2a-skip h2a-shortcode-processing-flag\">\n\n\n<div class=\"h2a-shortcode-processing-flag\"\n  data-shortcode-manifest='{&#34;inner&#34;:&#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;checked&#34;:&#34;true&#34;,&#34;id&#34;:&#34;a&#34;,&#34;label&#34;:&#34;First&#34;}}'>\n</div>\n\n<div class=\"hugo-shortcode\">\n\n\n\n<input type=\"radio\" id=\"tab-a\" name=\"tabset\" checked>\n<label for=\"tab-a\">First</label>\n<div class=\"tab-content\">\n  This is the <strong>first</strong> tab.\n</div>\n\n</div>\n</div>\n\n\n\n<div class=\"h2a-shortcode-processing-flag\"\n  data-shortcode-manifest='{&#34;inner&#34;:&#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;id&#34;:&#34;b&#34;,&#34;label&#34;:&#34;Second&#34;}}'>\n</div>\n\n<div class=\"h2a-skip h2a-shortcode-processing-flag\">\n\n\n<div class=\"h2a-shortcode-processing-flag\"\n  data-shortcode-manifest='{&#34;inner&#34;:&#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;id&#34;:&#34;b&#34;,&#34;label&#34;:&#34;Second&#34;}}'>\n</div>\n\n<div class=\"hugo-shortcode\">\n\n\n\n<input type=\"radio\" id=\"tab-b\" name=\"tabset\" >\n<label for=\"tab-b\">Second</label>\n<div class=\"tab-content\">\n  This is the <strong>second</strong> tab.\n</div>\n\n</div>\n</div>\n\n"
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n\n\n\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "shortcode",
+            "data": {
+              "nodeName": "tab",
+              "params": {
+                "checked": "true",
+                "id": "a",
+                "label": "First"
+              },
+              "inner": "<p>This is the <strong>first</strong> tab.</p>\n"
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "htmlTag",
+                "data": {
+                  "nodeName": "p",
+                  "tagName": "p",
+                  "attrs": []
+                }
+              },
+              "children": [
+                {
+                  "item": {
+                    "type": "text",
+                    "data": {
+                      "nodeName": "#text",
+                      "value": "This is the "
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "item": {
+                    "type": "htmlTag",
+                    "data": {
+                      "nodeName": "strong",
+                      "tagName": "strong",
+                      "attrs": []
+                    }
+                  },
+                  "children": [
+                    {
+                      "item": {
+                        "type": "text",
+                        "data": {
+                          "nodeName": "#text",
+                          "value": "first"
+                        }
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "item": {
+                    "type": "text",
+                    "data": {
+                      "nodeName": "#text",
+                      "value": " tab."
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "\n"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n\n\n\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "shortcode",
+            "data": {
+              "nodeName": "tab",
+              "params": {
+                "id": "b",
+                "label": "Second"
+              },
+              "inner": "<p>This is the <strong>second</strong> tab.</p>\n"
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "htmlTag",
+                "data": {
+                  "nodeName": "p",
+                  "tagName": "p",
+                  "attrs": []
+                }
+              },
+              "children": [
+                {
+                  "item": {
+                    "type": "text",
+                    "data": {
+                      "nodeName": "#text",
+                      "value": "This is the "
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "item": {
+                    "type": "htmlTag",
+                    "data": {
+                      "nodeName": "strong",
+                      "tagName": "strong",
+                      "attrs": []
+                    }
+                  },
+                  "children": [
+                    {
+                      "item": {
+                        "type": "text",
+                        "data": {
+                          "nodeName": "#text",
+                          "value": "second"
+                        }
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "item": {
+                    "type": "text",
+                    "data": {
+                      "nodeName": "#text",
+                      "value": " tab."
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "\n"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    }
+  ]
+}

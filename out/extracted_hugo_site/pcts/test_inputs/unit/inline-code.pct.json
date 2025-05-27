@@ -1,0 +1,61 @@
+{
+  "item": {
+    "type": "htmlTag",
+    "data": {
+      "nodeName": "article",
+      "tagName": "article",
+      "attrs": [
+        {
+          "name": "class",
+          "value": "markdown book-article"
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "p",
+          "tagName": "p",
+          "attrs": []
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "code",
+              "tagName": "code",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "console.log(\"Hello world\")"
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    }
+  ]
+}

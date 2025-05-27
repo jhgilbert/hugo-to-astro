@@ -1,0 +1,109 @@
+{
+  "$$mdtype": "Node",
+  "errors": [],
+  "lines": [],
+  "inline": false,
+  "attributes": {
+    "frontmatter": "title: italics"
+  },
+  "children": [
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        3,
+        4
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            3,
+            4
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                3,
+                4
+              ],
+              "inline": true,
+              "attributes": {
+                "marker": "*"
+              },
+              "children": [
+                {
+                  "$$mdtype": "Node",
+                  "errors": [],
+                  "lines": [
+                    3,
+                    4
+                  ],
+                  "inline": true,
+                  "attributes": {
+                    "content": "This is example italic text."
+                  },
+                  "children": [],
+                  "type": "text",
+                  "annotations": [],
+                  "slots": {},
+                  "location": {
+                    "start": {
+                      "line": 3
+                    },
+                    "end": {
+                      "line": 4
+                    }
+                  }
+                }
+              ],
+              "type": "em",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 3
+                },
+                "end": {
+                  "line": 4
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 3
+            },
+            "end": {
+              "line": 4
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 3
+        },
+        "end": {
+          "line": 4
+        }
+      }
+    }
+  ],
+  "type": "document",
+  "annotations": [],
+  "slots": {}
+}

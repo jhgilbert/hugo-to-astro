@@ -1,0 +1,84 @@
+{
+  "$$mdtype": "Node",
+  "errors": [],
+  "lines": [],
+  "inline": false,
+  "attributes": {
+    "frontmatter": "title: p"
+  },
+  "children": [
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        3,
+        4
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            3,
+            4
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                3,
+                4
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "Just one paragraph. That's all, just a paragraph. It has multiple sentences, though."
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 3
+                },
+                "end": {
+                  "line": 4
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 3
+            },
+            "end": {
+              "line": 4
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 3
+        },
+        "end": {
+          "line": 4
+        }
+      }
+    }
+  ],
+  "type": "document",
+  "annotations": [],
+  "slots": {}
+}
