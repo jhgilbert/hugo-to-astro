@@ -4,6 +4,7 @@ import { z } from "zod";
  * Every expected HTML tag that we expect to process
  * from the compiled content. !!! NOT IN USE YET. !!!
  */
+/*
 const HtmlTagNamesSchema = z.enum([
   // the page
   "article",
@@ -24,6 +25,7 @@ const HtmlTagNamesSchema = z.enum([
   // links
   "a",
 ]);
+*/
 
 /**
  * An item representing an HTML tag encountered
@@ -34,7 +36,7 @@ export const HtmlTagItemSchema = z
     type: z.literal("htmlTag"),
     data: z
       .object({
-        nodeName: z.string(), // TODO: Control expectations with HtmlTagNamesSchema
+        nodeName: z.string(), // TODO: Control expectations with a HtmlTagNamesSchema
         tagName: z.string(), // TODO: Control expectations with HtmlTagNamesSchema
         attrs: z
           .array(
