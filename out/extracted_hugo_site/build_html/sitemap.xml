@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://example.org/docs/commonmark_spec/</loc>
+  </url><url>
+    <loc>https://example.org/docs/a_simple_shortcode/</loc>
+  </url><url>
+    <loc>https://example.org/docs/nested_shortcodes/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/bold/</loc>
+  </url><url>
+    <loc>https://example.org/categories/</loc>
+  </url><url>
+    <loc>https://example.org/docs/</loc>
+  </url><url>
+    <loc>https://example.org/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/h1/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/h2/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/link/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/inline-code/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/italics/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/ol/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/p/</loc>
+  </url><url>
+    <loc>https://example.org/tags/</loc>
+  </url><url>
+    <loc>https://example.org/docs/test_inputs/unit/ul/</loc>
+  </url>
+</urlset>

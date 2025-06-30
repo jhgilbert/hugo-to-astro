@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Nested Shortcodes in Markup
+  #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+First
+
+  This is the first tab.
+
+
+
+
+
+
+
+
+
+
+Second
+
+  This is the second tab.
+
+
+
+
+
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/docs/nested_shortcodes/">
+  <meta property="og:site_name" content="Example Hugo Site">
+  <meta property="og:title" content="Nested Shortcodes in Markup">
+  <meta property="og:description" content="Nested Shortcodes in Markup # First This is the first tab. Second This is the second tab.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Nested Shortcodes in Markup | Example Hugo Site</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://example.org/docs/nested_shortcodes/">
+<link rel="stylesheet" href="/book.min.26ab4dc3f6076ceda2f9c263aa4029ae3341dbcce339f901aa432b11da6e5894.css" integrity="sha256-JqtNw/YHbO2i&#43;cJjqkAprjNB28zjOfkBqkMrEdpuWJQ=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.150080c79a488bcff7a443379ec2d6d12c8d3f8efe19ae4d504f4f27ebd005e8.js" integrity="sha256-FQCAx5pIi8/3pEM3nsLW0SyNP47&#43;Ga5NUE9PJ&#43;vQBeg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Example Hugo Site</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/commonmark_spec/" class="">Plain Markdown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/a_simple_shortcode/" class="">A Simple Shortcode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/nested_shortcodes/" class="active">Nested Shortcodes in Markup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/bold/" class="">bold</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/h1/" class="">h1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/h2/" class="">h2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/link/" class="">h2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/inline-code/" class="">inline-code</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/italics/" class="">italics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/ol/" class="">ol</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/p/" class="">p</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test_inputs/unit/ul/" class="">ul</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Nested Shortcodes in Markup</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="nested-shortcodes-in-markup">
+  Nested Shortcodes in Markup
+  <a class="anchor" href="#nested-shortcodes-in-markup">#</a>
+</h1>
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\n\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;checked\u0026#34;:\u0026#34;true\u0026#34;,\u0026#34;id\u0026#34;:\u0026#34;a\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;First\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;h2a-skip h2a-shortcode-processing-flag\&#34;\u003e\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;checked\u0026#34;:\u0026#34;true\u0026#34;,\u0026#34;id\u0026#34;:\u0026#34;a\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;First\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;hugo-shortcode\&#34;\u003e\n\n\n\n\u003cinput type=\&#34;radio\&#34; id=\&#34;tab-a\&#34; name=\&#34;tabset\&#34; checked\u003e\n\u003clabel for=\&#34;tab-a\&#34;\u003eFirst\u003c/label\u003e\n\u003cdiv class=\&#34;tab-content\&#34;\u003e\n  This is the \u003cstrong\u003efirst\u003c/strong\u003e tab.\n\u003c/div\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;id\u0026#34;:\u0026#34;b\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;Second\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;h2a-skip h2a-shortcode-processing-flag\&#34;\u003e\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;id\u0026#34;:\u0026#34;b\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;Second\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;hugo-shortcode\&#34;\u003e\n\n\n\n\u003cinput type=\&#34;radio\&#34; id=\&#34;tab-b\&#34; name=\&#34;tabset\&#34; \u003e\n\u003clabel for=\&#34;tab-b\&#34;\u003eSecond\u003c/label\u003e\n\u003cdiv class=\&#34;tab-content\&#34;\u003e\n  This is the \u003cstrong\u003esecond\u003c/strong\u003e tab.\n\u003c/div\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\n&#34;,&#34;nodeName&#34;:&#34;tabs&#34;,&#34;params&#34;:null}'>
+</div>
+<div class="h2a-skip h2a-shortcode-processing-flag">
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\n\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;checked\u0026#34;:\u0026#34;true\u0026#34;,\u0026#34;id\u0026#34;:\u0026#34;a\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;First\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;h2a-skip h2a-shortcode-processing-flag\&#34;\u003e\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003efirst\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;checked\u0026#34;:\u0026#34;true\u0026#34;,\u0026#34;id\u0026#34;:\u0026#34;a\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;First\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;hugo-shortcode\&#34;\u003e\n\n\n\n\u003cinput type=\&#34;radio\&#34; id=\&#34;tab-a\&#34; name=\&#34;tabset\&#34; checked\u003e\n\u003clabel for=\&#34;tab-a\&#34;\u003eFirst\u003c/label\u003e\n\u003cdiv class=\&#34;tab-content\&#34;\u003e\n  This is the \u003cstrong\u003efirst\u003c/strong\u003e tab.\n\u003c/div\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;id\u0026#34;:\u0026#34;b\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;Second\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;h2a-skip h2a-shortcode-processing-flag\&#34;\u003e\n\n\n\u003cdiv class=\&#34;h2a-shortcode-processing-flag\&#34;\n  data-shortcode-manifest=&#39;{\u0026#34;inner\u0026#34;:\u0026#34;\\u003cp\\u003eThis is the \\u003cstrong\\u003esecond\\u003c/strong\\u003e tab.\\u003c/p\\u003e\\n\u0026#34;,\u0026#34;nodeName\u0026#34;:\u0026#34;tab\u0026#34;,\u0026#34;params\u0026#34;:{\u0026#34;id\u0026#34;:\u0026#34;b\u0026#34;,\u0026#34;label\u0026#34;:\u0026#34;Second\u0026#34;}}&#39;\u003e\n\u003c/div\u003e\n\n\u003cdiv class=\&#34;hugo-shortcode\&#34;\u003e\n\n\n\n\u003cinput type=\&#34;radio\&#34; id=\&#34;tab-b\&#34; name=\&#34;tabset\&#34; \u003e\n\u003clabel for=\&#34;tab-b\&#34;\u003eSecond\u003c/label\u003e\n\u003cdiv class=\&#34;tab-content\&#34;\u003e\n  This is the \u003cstrong\u003esecond\u003c/strong\u003e tab.\n\u003c/div\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\n&#34;,&#34;nodeName&#34;:&#34;tabs&#34;,&#34;params&#34;:null}'>
+</div>
+<div class="hugo-shortcode">
+<style>
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+.tabs input[type="radio"] {
+  display: none;
+}
+.tabs .labels {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+.tabs label {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  background: #eee;
+  border-radius: 5px;
+  margin-bottom: 0.25em;
+  margin-top: 1em;
+}
+.tabs .tab-content {
+  display: none;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+.tabs input:checked + label + .tab-content {
+  display: block;
+}
+</style>
+<div class="tabs">
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\u003cp\u003eThis is the \u003cstrong\u003efirst\u003c/strong\u003e tab.\u003c/p\u003e\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;checked&#34;:&#34;true&#34;,&#34;id&#34;:&#34;a&#34;,&#34;label&#34;:&#34;First&#34;}}'>
+</div>
+<div class="h2a-skip h2a-shortcode-processing-flag">
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\u003cp\u003eThis is the \u003cstrong\u003efirst\u003c/strong\u003e tab.\u003c/p\u003e\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;checked&#34;:&#34;true&#34;,&#34;id&#34;:&#34;a&#34;,&#34;label&#34;:&#34;First&#34;}}'>
+</div>
+<div class="hugo-shortcode">
+<input type="radio" id="tab-a" name="tabset" checked>
+<label for="tab-a">First</label>
+<div class="tab-content">
+  This is the <strong>first</strong> tab.
+</div>
+</div>
+</div>
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\u003cp\u003eThis is the \u003cstrong\u003esecond\u003c/strong\u003e tab.\u003c/p\u003e\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;id&#34;:&#34;b&#34;,&#34;label&#34;:&#34;Second&#34;}}'>
+</div>
+<div class="h2a-skip h2a-shortcode-processing-flag">
+<div class="h2a-shortcode-processing-flag"
+  data-shortcode-manifest='{&#34;inner&#34;:&#34;\u003cp\u003eThis is the \u003cstrong\u003esecond\u003c/strong\u003e tab.\u003c/p\u003e\n&#34;,&#34;nodeName&#34;:&#34;tab&#34;,&#34;params&#34;:{&#34;id&#34;:&#34;b&#34;,&#34;label&#34;:&#34;Second&#34;}}'>
+</div>
+<div class="hugo-shortcode">
+<input type="radio" id="tab-b" name="tabset" >
+<label for="tab-b">Second</label>
+<div class="tab-content">
+  This is the <strong>second</strong> tab.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

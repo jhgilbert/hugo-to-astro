@@ -2,6 +2,7 @@ import { z } from "zod";
 import { ShortcodeItemSchema } from "./shortcodeItem.js";
 import { HtmlTagItemSchema } from "./htmlTagItem.js";
 import { TextItemSchema } from "./textItem.js";
+import { PartialItemSchema } from "./partialItem.js";
 
 /**
  * A chunk of extracted content,
@@ -9,6 +10,7 @@ import { TextItemSchema } from "./textItem.js";
  */
 export const ContentItemSchema = z.discriminatedUnion("type", [
   ShortcodeItemSchema,
+  PartialItemSchema,
   HtmlTagItemSchema,
   TextItemSchema,
 ]);

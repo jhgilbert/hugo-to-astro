@@ -1,9 +1,10 @@
 import fs from "fs";
-import { parse, DefaultTreeAdapterTypes } from "parse5";
+import { parse, DefaultTreeAdapterTypes, parseFragment } from "parse5";
 import {
   ContentItemSchema,
   ParsedContentTree,
 } from "./schemas/parsedContentTree.js";
+import { NODE_SKIP_CLASS } from "./config.js";
 
 export function htmlToParsedContentTree(htmlFilePath: string) {
   const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
@@ -66,12 +67,12 @@ function buildParsedContentTree(p: {
 }): ParsedContentTree | null {
   let result: ParsedContentTree | null = null;
 
+  if (nodeHasClass(p.sourceHtmlNode, NODE_SKIP_CLASS)) {
+    return null;
+  }
+
   const shortcodeData = extractHugoShortcodeData(p.sourceHtmlNode);
   if (shortcodeData) {
-    console.log(
-      `Found shortcode: ${shortcodeData.nodeName} with data:`,
-      shortcodeData
-    );
     result = {
       item: {
         type: "shortcode",
@@ -111,9 +112,27 @@ function buildParsedContentTree(p: {
     result.item = ContentItemSchema.parse(result.item);
   }
 
-  // Recurse into children if present
+  // For shortcodes, parse and process the inner content
+  if (result && result.item.type === "shortcode") {
+    const inner = result.item.data.inner;
+    if (inner) {
+      let innerHtml = parseFragment(inner);
+      innerHtml.childNodes.forEach((child) => {
+        const treeNode = buildParsedContentTree({
+          sourceHtmlNode: child,
+        });
+
+        if (treeNode) {
+          result.children.push(treeNode);
+        }
+      });
+    }
+  }
+
+  // For HTML tags, recursively process child nodes
   if (
     result &&
+    result.item.type === "htmlTag" &&
     "childNodes" in p.sourceHtmlNode &&
     Array.isArray(p.sourceHtmlNode.childNodes)
   ) {

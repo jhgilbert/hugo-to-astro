@@ -1,0 +1,941 @@
+{
+  "$$mdtype": "Node",
+  "errors": [],
+  "lines": [],
+  "inline": false,
+  "attributes": {
+    "frontmatter": "title: A Simple Shortcode\nweight: 2"
+  },
+  "children": [
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        5,
+        6
+      ],
+      "inline": false,
+      "attributes": {
+        "level": 1
+      },
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            5,
+            6
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                5,
+                6
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "A Simple Shortcode"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 5
+                },
+                "end": {
+                  "line": 6
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 5
+            },
+            "end": {
+              "line": 6
+            }
+          }
+        }
+      ],
+      "type": "heading",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 5
+        },
+        "end": {
+          "line": 6
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        7,
+        8
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            7,
+            8
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                7,
+                8
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "This page demos a simple shortcode that takes a few attributes and renders a square based on those attributes."
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 7
+                },
+                "end": {
+                  "line": 8
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 7
+            },
+            "end": {
+              "line": 8
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 7
+        },
+        "end": {
+          "line": 8
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        9,
+        10
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            9,
+            10
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                9,
+                10
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "All of the squares below represent the same shortcode configured differently."
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 9
+                },
+                "end": {
+                  "line": 10
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 9
+            },
+            "end": {
+              "line": 10
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 9
+        },
+        "end": {
+          "line": 10
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        11,
+        12
+      ],
+      "inline": false,
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            11,
+            12
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                11,
+                12
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "Default square"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 11
+                },
+                "end": {
+                  "line": 12
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 11
+            },
+            "end": {
+              "line": 12
+            }
+          }
+        }
+      ],
+      "type": "heading",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 11
+        },
+        "end": {
+          "line": 12
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        13,
+        14
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            13,
+            14
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                13,
+                14
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "{{< square >}}"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 13
+                },
+                "end": {
+                  "line": 14
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 13
+            },
+            "end": {
+              "line": 14
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 13
+        },
+        "end": {
+          "line": 14
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        15,
+        16
+      ],
+      "inline": false,
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            15,
+            16
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                15,
+                16
+              ],
+              "inline": true,
+              "attributes": {
+                "marker": "**"
+              },
+              "children": [
+                {
+                  "$$mdtype": "Node",
+                  "errors": [],
+                  "lines": [
+                    15,
+                    16
+                  ],
+                  "inline": true,
+                  "attributes": {
+                    "content": "Pink"
+                  },
+                  "children": [],
+                  "type": "text",
+                  "annotations": [],
+                  "slots": {},
+                  "location": {
+                    "start": {
+                      "line": 15
+                    },
+                    "end": {
+                      "line": 16
+                    }
+                  }
+                }
+              ],
+              "type": "strong",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 15
+                },
+                "end": {
+                  "line": 16
+                }
+              }
+            },
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                15,
+                16
+              ],
+              "inline": true,
+              "attributes": {
+                "content": " square with thicker border"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 15
+                },
+                "end": {
+                  "line": 16
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 15
+            },
+            "end": {
+              "line": 16
+            }
+          }
+        }
+      ],
+      "type": "heading",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 15
+        },
+        "end": {
+          "line": 16
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        17,
+        18
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            17,
+            18
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                17,
+                18
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "{{< square color=\"#fa0282\" border=\"3px\" >}}"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 17
+                },
+                "end": {
+                  "line": 18
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 17
+            },
+            "end": {
+              "line": 18
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 17
+        },
+        "end": {
+          "line": 18
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        19,
+        20
+      ],
+      "inline": false,
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            19,
+            20
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                19,
+                20
+              ],
+              "inline": true,
+              "attributes": {
+                "marker": "**"
+              },
+              "children": [
+                {
+                  "$$mdtype": "Node",
+                  "errors": [],
+                  "lines": [
+                    19,
+                    20
+                  ],
+                  "inline": true,
+                  "attributes": {
+                    "content": "Rounded"
+                  },
+                  "children": [],
+                  "type": "text",
+                  "annotations": [],
+                  "slots": {},
+                  "location": {
+                    "start": {
+                      "line": 19
+                    },
+                    "end": {
+                      "line": 20
+                    }
+                  }
+                }
+              ],
+              "type": "strong",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 19
+                },
+                "end": {
+                  "line": 20
+                }
+              }
+            },
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                19,
+                20
+              ],
+              "inline": true,
+              "attributes": {
+                "content": " pink square with thicker border"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 19
+                },
+                "end": {
+                  "line": 20
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 19
+            },
+            "end": {
+              "line": 20
+            }
+          }
+        }
+      ],
+      "type": "heading",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 19
+        },
+        "end": {
+          "line": 20
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        21,
+        22
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            21,
+            22
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                21,
+                22
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "{{< square color=\"#fa0282\" radius=\"10px\" border=\"3px\" >}}"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 21
+                },
+                "end": {
+                  "line": 22
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 21
+            },
+            "end": {
+              "line": 22
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 21
+        },
+        "end": {
+          "line": 22
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        23,
+        24
+      ],
+      "inline": false,
+      "attributes": {
+        "level": 2
+      },
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            23,
+            24
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                23,
+                24
+              ],
+              "inline": true,
+              "attributes": {
+                "marker": "**"
+              },
+              "children": [
+                {
+                  "$$mdtype": "Node",
+                  "errors": [],
+                  "lines": [
+                    23,
+                    24
+                  ],
+                  "inline": true,
+                  "attributes": {
+                    "content": "Centered"
+                  },
+                  "children": [],
+                  "type": "text",
+                  "annotations": [],
+                  "slots": {},
+                  "location": {
+                    "start": {
+                      "line": 23
+                    },
+                    "end": {
+                      "line": 24
+                    }
+                  }
+                }
+              ],
+              "type": "strong",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 23
+                },
+                "end": {
+                  "line": 24
+                }
+              }
+            },
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                23,
+                24
+              ],
+              "inline": true,
+              "attributes": {
+                "content": " rounded pink square with thicker border"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 23
+                },
+                "end": {
+                  "line": 24
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 23
+            },
+            "end": {
+              "line": 24
+            }
+          }
+        }
+      ],
+      "type": "heading",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 23
+        },
+        "end": {
+          "line": 24
+        }
+      }
+    },
+    {
+      "$$mdtype": "Node",
+      "errors": [],
+      "lines": [
+        25,
+        26
+      ],
+      "inline": false,
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Node",
+          "errors": [],
+          "lines": [
+            25,
+            26
+          ],
+          "inline": false,
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Node",
+              "errors": [],
+              "lines": [
+                25,
+                26
+              ],
+              "inline": true,
+              "attributes": {
+                "content": "{{< square color=\"#fa0282\" radius=\"10px\" align=\"center\" border=\"3px\" >}}"
+              },
+              "children": [],
+              "type": "text",
+              "annotations": [],
+              "slots": {},
+              "location": {
+                "start": {
+                  "line": 25
+                },
+                "end": {
+                  "line": 26
+                }
+              }
+            }
+          ],
+          "type": "inline",
+          "annotations": [],
+          "slots": {},
+          "location": {
+            "start": {
+              "line": 25
+            },
+            "end": {
+              "line": 26
+            }
+          }
+        }
+      ],
+      "type": "paragraph",
+      "annotations": [],
+      "slots": {},
+      "location": {
+        "start": {
+          "line": 25
+        },
+        "end": {
+          "line": 26
+        }
+      }
+    }
+  ],
+  "type": "document",
+  "annotations": [],
+  "slots": {}
+}

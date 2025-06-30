@@ -1,0 +1,699 @@
+{
+  "item": {
+    "type": "htmlTag",
+    "data": {
+      "nodeName": "article",
+      "tagName": "article",
+      "attrs": [
+        {
+          "name": "class",
+          "value": "markdown book-article"
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h1",
+          "tagName": "h1",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "a-simple-shortcode"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  A Simple Shortcode\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#a-simple-shortcode"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "p",
+          "tagName": "p",
+          "attrs": []
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "This page demos a simple shortcode that takes a few attributes and renders a square based on those attributes."
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "p",
+          "tagName": "p",
+          "attrs": []
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "All of the squares below represent the same shortcode configured differently."
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h2",
+          "tagName": "h2",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "default-square"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  Default square\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#default-square"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "shortcode",
+        "data": {
+          "nodeName": "square",
+          "params": null
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h2",
+          "tagName": "h2",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "pink-square-with-thicker-border"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "strong",
+              "tagName": "strong",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "Pink"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": " square with thicker border\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#pink-square-with-thicker-border"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "shortcode",
+        "data": {
+          "nodeName": "square",
+          "params": {
+            "border": "3px",
+            "color": "#fa0282"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h2",
+          "tagName": "h2",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "rounded-pink-square-with-thicker-border"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "strong",
+              "tagName": "strong",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "Rounded"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": " pink square with thicker border\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#rounded-pink-square-with-thicker-border"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "shortcode",
+        "data": {
+          "nodeName": "square",
+          "params": {
+            "border": "3px",
+            "color": "#fa0282",
+            "radius": "10px"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "h2",
+          "tagName": "h2",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "centered-rounded-pink-square-with-thicker-border"
+            }
+          ]
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "strong",
+              "tagName": "strong",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "Centered"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": " rounded pink square with thicker border\n  "
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "a",
+              "tagName": "a",
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "anchor"
+                },
+                {
+                  "name": "href",
+                  "value": "#centered-rounded-pink-square-with-thicker-border"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "#"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "shortcode",
+        "data": {
+          "nodeName": "square",
+          "params": {
+            "align": "center",
+            "border": "3px",
+            "color": "#fa0282",
+            "radius": "10px"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n\n"
+        }
+      },
+      "children": []
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    }
+  ]
+}
