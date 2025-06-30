@@ -1,0 +1,61 @@
+{
+  "item": {
+    "type": "htmlTag",
+    "data": {
+      "nodeName": "article",
+      "tagName": "article",
+      "attrs": [
+        {
+          "name": "class",
+          "value": "markdown book-article"
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "p",
+          "tagName": "p",
+          "attrs": []
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "em",
+              "tagName": "em",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "This is example italic text."
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    }
+  ]
+}

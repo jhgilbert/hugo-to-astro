@@ -1,0 +1,145 @@
+{
+  "item": {
+    "type": "htmlTag",
+    "data": {
+      "nodeName": "article",
+      "tagName": "article",
+      "attrs": [
+        {
+          "name": "class",
+          "value": "markdown book-article"
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "item": {
+        "type": "htmlTag",
+        "data": {
+          "nodeName": "ol",
+          "tagName": "ol",
+          "attrs": []
+        }
+      },
+      "children": [
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "li",
+              "tagName": "li",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "First item"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "li",
+              "tagName": "li",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "Second item"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        },
+        {
+          "item": {
+            "type": "htmlTag",
+            "data": {
+              "nodeName": "li",
+              "tagName": "li",
+              "attrs": []
+            }
+          },
+          "children": [
+            {
+              "item": {
+                "type": "text",
+                "data": {
+                  "nodeName": "#text",
+                  "value": "Third item"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "item": {
+            "type": "text",
+            "data": {
+              "nodeName": "#text",
+              "value": "\n"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "item": {
+        "type": "text",
+        "data": {
+          "nodeName": "#text",
+          "value": "\n"
+        }
+      },
+      "children": []
+    }
+  ]
+}
